@@ -1,0 +1,23 @@
+.user-list-container {
+	display: flex;
+	mat-card {
+		width: 25%;
+		&:not(:last-child){
+			margin-right: 16px;
+		}
+		.mat-card-header {
+			.mat-card-header-text {
+				margin: 0;
+			}
+		}
+		mat-card-actions.mat-card-actions {
+			display: flex;
+			justify-content: space-between;
+			i {
+				color: #3f51b5;
+				cursor: pointer;
+			}
+		}
+	}
+
+}

@@ -23,12 +23,12 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "tab"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
-      true,
+      false,
       140
     ],
     "member-access": false,

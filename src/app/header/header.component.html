@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>MyApp</span>
+
+  <div class="menu">
+    <mat-chip-list>
+      <mat-chip [routerLink]="['user', 'add']">Add User</mat-chip>
+      <mat-chip [routerLink]="['user', 'list']">Users</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <span>
+    <i class="material-icons">
+      exit_to_app
+    </i>
+  </span>
+</mat-toolbar>

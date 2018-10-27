@@ -1,0 +1,77 @@
+<div class="user-from-container">
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>Add User</mat-card-title>
+		</mat-card-header>
+		<form id=add_user [formGroup]="userForm" (ngSubmit)="addUser()">
+			<mat-card-content>
+				<!-- First Name -->
+				<mat-form-field>
+					<mat-label>First Name</mat-label>
+					<input type="text" matInput id="firstName" formControlName="firstName">
+					<mat-error *ngFor="let validation of validationMessages.firstName">
+						<mat-error class="error-message" *ngIf="userForm.get('firstName').hasError(validation.type) && (userForm.get('firstName').dirty || userForm.get('firstName').touched)">{{validation.message}}
+						</mat-error>
+					</mat-error>
+				</mat-form-field>
+				<!-- Last Name -->
+				<mat-form-field>
+					<mat-label>Last Name</mat-label>
+					<input type="text" matInput id="lastName" formControlName="lastName">
+					<mat-error *ngFor="let validation of validationMessages.lastName">
+						<mat-error class="error-message" *ngIf="userForm.get('lastName').hasError(validation.type) && (userForm.get('lastName').dirty || userForm.get('lastName').touched)">{{validation.message}}
+						</mat-error>
+					</mat-error>
+				</mat-form-field>
+				<!-- Gender -->
+				<mat-form-field>
+					<mat-select placeholder="Gender" formControlName="gender">
+						<mat-option [value]="item.value" *ngFor="let item of gender"> {{item.label}}</mat-option>
+					</mat-select>
+					<mat-error *ngFor="let validation of validationMessages.gender">
+						<mat-error class="error-message" *ngIf="userForm.get('gender').hasError(validation.type) && (userForm.get('gender').dirty || userForm.get('gender').touched)">{{validation.message}}
+						</mat-error>
+					</mat-error>
+				</mat-form-field>
+				<h5>Address Information</h5>
+				<!-- Address Information -->
+				<div formGroupName="address">
+					<!-- City -->
+					<mat-form-field>
+						<mat-label>City</mat-label>
+						<input type="text" matInput id="city" formControlName="city">
+					</mat-form-field>
+					<!-- State -->
+					<mat-form-field>
+						<mat-label>State</mat-label>
+						<input type="text" matInput id="state" formControlName="state">
+					</mat-form-field>
+				</div>
+				<h5>Login Information</h5>
+				<!-- Login Information -->
+				<div formGroupName="loginInfo">
+					<!-- Email -->
+					<mat-form-field>
+						<mat-label>Email</mat-label>
+						<input type="email" matInput id="email" formControlName="email">
+						<mat-error *ngFor="let validation of validationMessages.email">
+							<mat-error class="error-message" *ngIf="userForm.controls['loginInfo'].get('email').hasError(validation.type) && (userForm.controls['loginInfo'].get('email').dirty || userForm.controls['loginInfo'].get('email').touched)">{{validation.message}}
+							</mat-error>
+						</mat-error>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Password</mat-label>
+						<input type="password" matInput id="password" formControlName="password">
+						<mat-error *ngFor="let validation of validationMessages.password">
+							<mat-error class="error-message" *ngIf="userForm.controls['loginInfo'].get('password').hasError(validation.type) && (userForm.controls['loginInfo'].get('password').dirty || userForm.controls['loginInfo'].get('password').touched)">{{validation.message}}
+							</mat-error>
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</mat-card-content>
+			<mat-card-actions>
+				<button mat-raised-button color="primary">{{userId ? 'Update': 'Add'}}</button>
+			</mat-card-actions>
+		</form>
+	</mat-card>
+</div>

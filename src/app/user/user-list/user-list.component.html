@@ -1,0 +1,23 @@
+<div class="user-list-container" *ngIf="users !== null && users.length > 0; else noUsers">
+	<mat-card *ngFor="let user of users">
+		<mat-card-header>
+			<mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+			<mat-card-subtitle>{{user.loginInfo.email}}</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-content>
+			<div>City: {{user.address.city}}</div>
+			<div>State: {{user.address.state}}</div>
+		</mat-card-content>
+		<mat-card-actions>
+			<i class="material-icons" [routerLink]="['../','edit', user.id]">
+				border_color
+			</i>
+			<i class="material-icons" (click)="deleteUser(user.id)">
+				delete
+			</i>
+		</mat-card-actions>
+	</mat-card>
+</div>
+<ng-template #noUsers>
+	<p>No users found</p>
+</ng-template>
